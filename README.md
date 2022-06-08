@@ -1,8 +1,11 @@
 # Sprint-7_Presupuesto
+
+
 ### Exercici 1
 La nostra aplicació començarà amb tres checkboxes mitjançant els quals l'usuari/ària podrà decidir si vol obtenir el pressupost d'una pàgina web (500 €), una campanya SEO (300 €) o una campanya de publicitat (200 €).
 
 En funció de les opcions que marqui, es mostrarà un preu diferent.
+
 ![img](assets/preu3.png)
 
 
