@@ -1,12 +1,13 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import './App.css'
 
 function App() {
   const [values, setValues] = useState([
-    { webpage: 0, isChecked: false },
-    { project: 0, isChecked: false },
-    { compaign: 200, isChecked: true },
+    { webpage: 500, isChecked: true },
+    { project: 300, isChecked: true },
+    { compaign: 0, isChecked: false },
   ])
+  const [total, setTotal] = useState(0)
 
   const handleInputChecked = ({ target }) => {
     const id = +target.id.slice(target.id.indexOf('_') + 1)
@@ -21,12 +22,22 @@ function App() {
             }
           : {
               ...item,
-              isChecked: item.isChecked
+              isChecked: item.isChecked,
             }
       )
     )
-    console.log(values)
   }
+
+  useEffect(() => {
+    console.log('useEffect funciona')
+    values.forEach(
+      item =>
+        setTotal(
+          _ => item.webpage + item.project + item.compaign
+        )
+    )
+    console.log('total', total)
+  }, [values])
 
   return (
     <div className='App'>
@@ -37,7 +48,7 @@ function App() {
           <input
             id='budget_0'
             className='form-check-input me-2'
-            onChange={e => handleInputChecked(e)}
+            onChange={handleInputChecked}
             name='webpage'
             type='checkbox'
             checked={values[0].isChecked}
@@ -49,7 +60,7 @@ function App() {
           <input
             id='budget_1'
             className='form-check-input me-2'
-            onChange={e => handleInputChecked(e)}
+            onChange={handleInputChecked}
             name='project'
             type='checkbox'
             checked={values[1].isChecked}
@@ -61,7 +72,7 @@ function App() {
           <input
             id='budget_2'
             className='form-check-input me-2'
-            onChange={e => handleInputChecked(e)}
+            onChange={handleInputChecked}
             name='compaign'
             type='checkbox'
             checked={values[2].isChecked}
@@ -73,24 +84,31 @@ function App() {
           onChange={handleInputChecked}
           className='form-control text-start bg-info text-white'
         >
-          Prices: $1,000 bucks!!
+          Prices: ${total} bucks!!
         </p>
         <p>
-          checkbox: {values.webpage} is {values[0].webpage} {values[0].isChecked ? 'checked' : 'unchecked'}.
+          checkbox: {values.webpage} is {values[0].webpage}{' '}
+          {values[0].isChecked ? 'checked' : 'unchecked'}.
         </p>
         <p>
-          checkbox: {values.webpage} is {values[1].project} {values[1].isChecked ? 'checked' : 'unchecked'}.
+          checkbox: {values.webpage} is {values[1].project}{' '}
+          {values[1].isChecked ? 'checked' : 'unchecked'}.
         </p>
         <p>
-          checkbox: {values.webpage} is {values[2].compaign} {values[2].isChecked ? 'checked' : 'unchecked'}.
+          checkbox: {values.webpage} is {values[2].compaign}{' '}
+          {values[2].isChecked ? 'checked' : 'unchecked'}.
         </p>
-      
-        <div className='container-fluid bg-success text-black text-start'>
-        <h6>testing outputs</h6>
-        { values.map((item, index) => <pre key={index}><code>{index} {JSON.stringify(item) }</code></pre>)}
+
+        <div className='container-fluid bg-success text-black text-start p-2'>
+          <h6 className='mb-4'>testing outputs</h6>
+          {values.map((item, index) => (
+            <pre className='fs-6' key={index}>
+              <code>
+                {index} {JSON.stringify(item)}
+              </code>
+            </pre>
+          ))}
         </div>
-        
-        
       </div>
     </div>
   )
