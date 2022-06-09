@@ -30,10 +30,9 @@ function App() {
 
   useEffect(() => {
     const total = values.reduce(
-      (acc, item) => (item.isChecked ? acc + item[Object.keys(item)[0]] : acc),
+      (acc, item) => acc + item[Object.keys(item)[0]],
       0
     )
-
     setTotal(total)
     console.log(values, total)
   }, [values])
