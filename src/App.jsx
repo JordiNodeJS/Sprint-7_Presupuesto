@@ -3,22 +3,24 @@ import './App.css'
 
 function App() {
   const [values, setValues] = useState([
-    { webpage: 500, isChecked: true },
-    { project: 300, isChecked: true },
-    { compaign: 0, isChecked: false },
+    { webpage: 500, isChecked: true, quantity: 1, quantityLanguage: 2 },
+    { project: 300, isChecked: true, quantity: 1, quantityLanguage: 1 },
+    { compaign: 0, isChecked: false, quantity: 0, quantityLanguage: 0 },
   ])
   const [total, setTotal] = useState(0)
 
-  const handleInputChecked = ({ target }) => {
-    const id = +target.id.slice(target.id.indexOf('_') + 1)
+  const handleInputChecked = ({ target: { id, name, value } }) => {
+    const idInput = +id.slice(id.indexOf('_') + 1)
 
     setValues(
       values.map((item, index) =>
-        index === id
+        index === idInput
           ? {
               ...item,
               isChecked: !item.isChecked,
-              [target.name]: !item.isChecked ? +target.value : 0,
+              [name]: !item.isChecked ? +value : 0,
+              quantity: !item.isChecked ? +value.replace(/\D/g, '') : 0,
+              quantityLanguage: !item.isChecked ? +value : 0,
             }
           : {
               ...item,
@@ -29,13 +31,43 @@ function App() {
   }
 
   useEffect(() => {
-    const total = values.reduce(
-      (acc, item) => acc + Object.values(item)[0],
-      0
-    )
+    const total = values.reduce((acc, item) => acc + Object.values(item)[0], 0)
     setTotal(total)
     console.log(values, total)
   }, [values])
+
+  const NumbersWebpagesLanguages = () => {
+    return (
+      <div className='mb-4'>
+        <h2>Number of Web Pages and Languages</h2>
+        <div className='container-fluid text-start'>
+          <div className='form-group row'>
+            <label className='form-label' htmlFor='pages'>
+              Pages
+              <input
+                id='pages'
+                className='form-control'
+                type='text'
+                value={values[0].quantity}
+                onChange={handleInputChecked}
+              />
+            </label>
+          </div>
+          <div className='form-group row'>
+            <label className='form-label' htmlFor='languages'>
+              Languages
+              <input
+                id='languages'
+                className='form-control'
+                type='text'
+                onChange={handleInputChecked}
+              />
+            </label>
+          </div>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className='App'>
@@ -54,6 +86,7 @@ function App() {
           />
           A web page: $500 bucks
         </p>
+        {values[0].isChecked && <NumbersWebpagesLanguages />}
         <p className='form-control text-start'>
           <input
             id='budget_1'
@@ -96,7 +129,6 @@ function App() {
           checkbox: {values.webpage} is {values[2].compaign}{' '}
           {values[2].isChecked ? 'checked' : 'unchecked'}.
         </p>
-
         <div className='container-fluid bg-success text-black text-start p-2'>
           <h6 className='mb-4'>testing outputs</h6>
           {values.map((item, index) => (
