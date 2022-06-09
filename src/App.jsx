@@ -30,7 +30,7 @@ function App() {
 
   useEffect(() => {
     const total = values.reduce(
-      (acc, item) => acc + item[Object.keys(item)[0]],
+      (acc, item) => acc + Object.values(item)[0],
       0
     )
     setTotal(total)
