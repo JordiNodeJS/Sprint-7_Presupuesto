@@ -29,14 +29,13 @@ function App() {
   }
 
   useEffect(() => {
-    console.log('useEffect funciona')
-    values.forEach(
-      item =>
-        setTotal(
-          _ => item.webpage + item.project + item.compaign
-        )
+    const total = values.reduce(
+      (acc, item) => (item.isChecked ? acc + item[Object.keys(item)[0]] : acc),
+      0
     )
-    console.log('total', total)
+
+    setTotal(total)
+    console.log(values, total)
   }, [values])
 
   return (
