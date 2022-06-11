@@ -4,23 +4,21 @@ import './App.css'
 function App() {
   const [values, setValues] = useState([
     { webpage: 500, isChecked: true, quantity: 1, quantityLanguage: 2 },
-    { project: 300, isChecked: true, quantity: 1, quantityLanguage: 1 },
-    { compaign: 0, isChecked: false, quantity: 0, quantityLanguage: 0 },
+    { project: 0, isChecked: false },
+    { compaign: 0, isChecked: false },
   ])
   const [total, setTotal] = useState(0)
 
   const handleInputChecked = ({ target: { id, name, value } }) => {
     const idInput = +id.slice(id.indexOf('_') + 1)
 
-    setValues(
-      values.map((item, index) =>
+    setValues(prev =>
+      prev.map((item, index) =>
         index === idInput
           ? {
               ...item,
               isChecked: !item.isChecked,
               [name]: !item.isChecked ? +value : 0,
-              quantity: !item.isChecked ? +value.replace(/\D/g, '') : 0,
-              quantityLanguage: !item.isChecked ? +value : 0,
             }
           : {
               ...item,
@@ -31,10 +29,43 @@ function App() {
   }
 
   useEffect(() => {
-    const total = values.reduce((acc, item) => acc + Object.values(item)[0], 0)
+    const total = values.reduce((acc, item) => {
+      let sum
+
+      item.quantity
+        ? item.quantityLanguage === 1
+          ? sum = item.quantity * 30
+          : sum = item.quantity * item.quantityLanguage * 30
+        : sum = 0
+
+      return acc + Object.values(item)[0] + sum
+    }, 0)
     setTotal(total)
     console.log(values, total)
   }, [values])
+
+  const handleQuantity = ({ target: { name, value } }) => {
+    setValues(prev =>
+      prev.map((item, index) =>
+        index === 0
+          ? {
+              ...item,
+              quantity: name === 'pages' ? +value : item.quantity,
+              quantityLanguage:
+                name === 'languages'
+                  ? value <= 0
+                    ? (value = 1)
+                    : value > 0
+                    ? +value
+                    : item.quantityLanguage
+                  : item.quantityLanguage,
+            }
+          : {
+              ...item,
+            }
+      )
+    )
+  }
 
   const NumbersWebpagesLanguages = () => {
     return (
@@ -46,10 +77,12 @@ function App() {
               Pages
               <input
                 id='pages'
+                name='pages'
                 className='form-control'
                 type='text'
                 value={values[0].quantity}
-                onChange={handleInputChecked}
+                onClick={event => event.target.select()}
+                onChange={handleQuantity}
               />
             </label>
           </div>
@@ -58,9 +91,12 @@ function App() {
               Languages
               <input
                 id='languages'
+                name='languages'
                 className='form-control'
                 type='text'
-                onChange={handleInputChecked}
+                value={values[0].quantityLanguage}
+                onClick={event => event.target.select()}
+                onChange={handleQuantity}
               />
             </label>
           </div>
@@ -71,7 +107,7 @@ function App() {
 
   return (
     <div className='App'>
-      <h1 className='text-center'>Budgets</h1>
+      <h1 className='text-center'>Here there are your awsome Budgets</h1>
       <div className='align'>
         <p>What d'you wanna do?</p>
         <p className='form-control text-start'>
