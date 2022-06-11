@@ -32,7 +32,7 @@ function App() {
     const total = values.reduce((acc, item) => {
       let sum
 
-      item.quantity
+      item.quantity && item.isChecked
         ? item.quantityLanguage === 1
           ? sum = item.quantity * 30
           : sum = item.quantity * item.quantityLanguage * 30
@@ -69,8 +69,8 @@ function App() {
 
   const NumbersWebpagesLanguages = () => {
     return (
-      <div className='mb-4'>
-        <h2>Number of Web Pages and Languages</h2>
+      <div className='bg-light p-2 mb-4 rounded'>
+        <h6>Number of Web Pages and Languages</h6>
         <div className='container-fluid text-start'>
           <div className='form-group row'>
             <label className='form-label' htmlFor='pages'>
