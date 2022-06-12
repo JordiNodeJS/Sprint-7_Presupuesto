@@ -44,3 +44,4 @@ Per a ells, has de canviar els ```<input type = "text" />``` del panell per un n
 
 
 
+[resources](https://bobbyhadz.com/blog/react-only-number-input)

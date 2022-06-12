@@ -1,32 +1,12 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
+import NumbersWebpagesLanguages  from './components/NumbersWebpagesLanguages'
+import useCheckedInputs from './hooks/useCheckedInputs'
 import './App.css'
 
 function App() {
-  const [values, setValues] = useState([
-    { webpage: 500, isChecked: true, quantity: 1, quantityLanguage: 2 },
-    { project: 0, isChecked: false },
-    { compaign: 0, isChecked: false },
-  ])
+  const [values, handleInputChecked, handleQuantity] = useCheckedInputs()
+ 
   const [total, setTotal] = useState(0)
-
-  const handleInputChecked = ({ target: { id, name, value } }) => {
-    const idInput = +id.slice(id.indexOf('_') + 1)
-
-    setValues(prev =>
-      prev.map((item, index) =>
-        index === idInput
-          ? {
-              ...item,
-              isChecked: !item.isChecked,
-              [name]: !item.isChecked ? +value : 0,
-            }
-          : {
-              ...item,
-              isChecked: item.isChecked,
-            }
-      )
-    )
-  }
 
   useEffect(() => {
     const total = values.reduce((acc, item) => {
@@ -43,67 +23,6 @@ function App() {
     setTotal(total)
     console.log(values, total)
   }, [values])
-
-  const handleQuantity = ({ target: { name, value } }) => {
-    setValues(prev =>
-      prev.map((item, index) =>
-        index === 0
-          ? {
-              ...item,
-              quantity: name === 'pages' ? +value : item.quantity,
-              quantityLanguage:
-                name === 'languages'
-                  ? value <= 0
-                    ? (value = 1)
-                    : value > 0
-                    ? +value
-                    : item.quantityLanguage
-                  : item.quantityLanguage,
-            }
-          : {
-              ...item,
-            }
-      )
-    )
-  }
-
-  const NumbersWebpagesLanguages = () => {
-    return (
-      <div className='bg-light p-2 mb-4 rounded'>
-        <h6>Number of Web Pages and Languages</h6>
-        <div className='container-fluid text-start'>
-          <div className='form-group row'>
-            <label className='form-label' htmlFor='pages'>
-              Pages
-              <input
-                id='pages'
-                name='pages'
-                className='form-control'
-                type='text'
-                value={values[0].quantity}
-                onClick={event => event.target.select()}
-                onChange={handleQuantity}
-              />
-            </label>
-          </div>
-          <div className='form-group row'>
-            <label className='form-label' htmlFor='languages'>
-              Languages
-              <input
-                id='languages'
-                name='languages'
-                className='form-control'
-                type='text'
-                value={values[0].quantityLanguage}
-                onClick={event => event.target.select()}
-                onChange={handleQuantity}
-              />
-            </label>
-          </div>
-        </div>
-      </div>
-    )
-  }
 
   return (
     <div className='App'>
@@ -122,7 +41,7 @@ function App() {
           />
           A web page: $500 bucks
         </p>
-        {values[0].isChecked && <NumbersWebpagesLanguages />}
+        {values[0].isChecked && <NumbersWebpagesLanguages values={values} handleQuantity={ handleQuantity } />}
         <p className='form-control text-start'>
           <input
             id='budget_1'
