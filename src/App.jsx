@@ -4,7 +4,7 @@ import useCheckedInputs from './hooks/useCheckedInputs'
 import './App.css'
 
 function App() {
-  const [values, handleInputChecked, handleQuantity] = useCheckedInputs()
+  const {values, setValues, handleInputChecked, handleQuantity} = useCheckedInputs()
  
   const [total, setTotal] = useState(0)
 
@@ -41,7 +41,7 @@ function App() {
           />
           A web page: $500 bucks
         </p>
-        {values[0].isChecked && <NumbersWebpagesLanguages values={values} handleQuantity={ handleQuantity } />}
+        {values[0].isChecked && <NumbersWebpagesLanguages values={values} setValues={setValues} handleQuantity={ handleQuantity } />}
         <p className='form-control text-start'>
           <input
             id='budget_1'
@@ -84,7 +84,7 @@ function App() {
           checkbox: {values.webpage} is {values[2].compaign}{' '}
           {values[2].isChecked ? 'checked' : 'unchecked'}.
         </p>
-        <div className='container-fluid bg-success text-black text-start p-2'>
+         <div className='container-fluid bg-success text-black text-start p-2'>
           <h6 className='mb-4'>testing outputs</h6>
           {values.map((item, index) => (
             <pre className='fs-6' key={index}>
