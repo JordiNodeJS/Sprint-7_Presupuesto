@@ -41,6 +41,7 @@ Per a fer la vida més fàcil a l'usuari/ària, en lloc de fer-li teclejar el no
 Per a ells, has de canviar els ```<input type = "text" />``` del panell per un nou component fet a mida, que tindrà botons d'incrementar i decrementar la quantitat, a més d'un quadre de text en què podrem escriure la quantitat directament:
 ![](assets/presu.gif)
 
+Let's go!
 
 
 
