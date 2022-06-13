@@ -39,9 +39,20 @@ GENIAL!, l'usuari/ària ja pot demanar 3 dels nostres serveis i customitzar un d
 Per a fer la vida més fàcil a l'usuari/ària, en lloc de fer-li teclejar el nombre de pàgines i idiomes que necessita, li posarem uns botons als costats de l'input perquè de manera fàcil pugui modificar la seva selecció.
 
 Per a ells, has de canviar els ```<input type = "text" />``` del panell per un nou component fet a mida, que tindrà botons d'incrementar i decrementar la quantitat, a més d'un quadre de text en què podrem escriure la quantitat directament:
+
 ![](assets/presu.gif)
 
 
+### Exercici 4
+Ja gairebé has completat la base del projecte, et falta guardar les dades dels camps seleccionats per l'usuari en localstorage.
+
+Has d'usar el hook useEffect per a carregar les dades del localstorage quan s'inicialitzi el component.
+
+
+### Exercici 5
+Per a acabar aquesta primera fase del projecte, és necessari implementar una pantalla de benvinguda per l'usuari/ària, on s'expliqui el propòsit i funcionament de la web.
+
+És necessari que implementis la navegació entre vistes utilitzant el routing de React.
 
 
 [resources](https://bobbyhadz.com/blog/react-only-number-input)

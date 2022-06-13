@@ -1,22 +1,24 @@
 const NumbersWebpagesLanguages = ({values, setValues, handleQuantity}) => {
+
   const handleClickPlus = (children, masterButton) => {
-    console.log(masterButton, children)
+
     setValues( prev =>
       prev.map((item, index) =>
         index === 0
           ? {
               ...item,
-              quantity: ( masterButton == 'pagesButton' && children == '+' ) ? item.quantity + 1 : (children == '-' && item.quantity > 0) ? item.quantity - 1 : item.quantity,
-              quantityLanguage: ( masterButton == 'languagesButton' && children == '+' ) ? item.quantityLanguage + 1 : (children == '-' && item.quantityLanguage > 0) ? item.quantityLanguage - 1 : item.quantityLanguage,
+              quantity: ( masterButton == 'pagesButton' && children == '+' ) ? item.quantity + 1 : ( masterButton == 'pagesButton' && children == '-'  && item.quantity > 0) ? item.quantity - 1 : item.quantity,
+              quantityLanguage: ( masterButton == 'languagesButton' && children == '+' ) ? item.quantityLanguage + 1 : (masterButton == 'languagesButton' && children == '-' && item.quantityLanguage > 0) ? item.quantityLanguage - 1 : item.quantityLanguage,
             }
           : {
               ...item,
-              isChecked: item.isChecked,
+              isChecked: item.isChecked, 
             }
       )
-      )
+    )
     
   }
+
   const Button = ({ children, onClick, masterButton }) => (
     <button className="btn btn-success ms-3"
     onClick={ _ => onClick(children, masterButton)}>{children}</button>
