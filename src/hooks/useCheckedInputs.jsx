@@ -23,6 +23,7 @@ const useCheckedInputs = () => {
       )
     )
   }
+  
   const handleQuantity = ({ target: { name, value } }) => {
     value = value.replace(/\D/g, '')
 

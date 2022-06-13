@@ -21,7 +21,6 @@ function App() {
       return acc + Object.values(item)[0] + sum
     }, 0)
     setTotal(total)
-    console.log(values, total)
   }, [values])
 
   return (
