@@ -47,6 +47,6 @@ const useCheckedInputs = () => {
       )
     )
   }
-  return [values, handleInputChecked, handleQuantity]
+  return {values, setValues, handleInputChecked, handleQuantity}
 }
 export default useCheckedInputs
