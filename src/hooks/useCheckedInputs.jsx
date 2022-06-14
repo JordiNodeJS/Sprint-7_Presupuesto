@@ -6,7 +6,7 @@ const useCheckedInputs = () => {
     { compaign: 0, isChecked: false },
   ]
 
-  intialValues = localStorage.getItem('values') && JSON.parse(localStorage.getItem('values')) 
+  intialValues = localStorage.getItem('values') == null ? intialValues : JSON.parse(localStorage.getItem('values'))
  
   const [values, setValues] = useState(intialValues)
  

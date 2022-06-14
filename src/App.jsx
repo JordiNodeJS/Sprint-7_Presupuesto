@@ -7,7 +7,11 @@ function App() {
   const {values, setValues, handleInputChecked, handleQuantity} = useCheckedInputs()
  
   const [total, setTotal] = useState(0)
-
+  
+  useEffect(() => {
+    localStorage.setItem('values', JSON.stringify(values))
+  }, [])
+  
   useEffect(() => {
     const total = values.reduce((acc, item) => {
       let sum
@@ -21,12 +25,9 @@ function App() {
       return acc + Object.values(item)[0] + sum
     }, 0)
     setTotal(total)
+    localStorage.setItem('values', JSON.stringify(values))
   }, [values])
 
-  // localStore
-  useEffect(() => {
-    localStorage.setItem('values', JSON.stringify(values))
-  }, [])
 
   return (
     <div className='App'>
