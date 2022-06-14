@@ -24,15 +24,7 @@ function App() {
   }, [values])
 
   useEffect(() => {
-    setValues(prev => prev.map(
-      item => {
-        localStorage.setItem(Object.keys(item)[0], Object.values(item)[0])
-        localStorage.setItem(Object.keys(item)[1], Object.values(item)[1])
-        localStorage.setItem(Object.keys(item)[2] && Object.keys(item)[2], Object.keys(item)[2] &&  Object.values(item)[2] )
-        localStorage.setItem(Object.keys(item)[2] && Object.keys(item)[3], Object.keys(item)[2] &&  Object.values(item)[3])
-      }
-      )
-    )
+    setValues(prev => localStorage.setItem('values', JSON.stringify(prev)))
   }, [values])
 
   return (

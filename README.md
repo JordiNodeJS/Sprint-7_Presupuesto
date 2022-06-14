@@ -55,4 +55,7 @@ Per a acabar aquesta primera fase del projecte, és necessari implementar una pa
 És necessari que implementis la navegació entre vistes utilitzant el routing de React.
 
 
+
 [resources](https://bobbyhadz.com/blog/react-only-number-input)
+
+[Readme Generator](https://rahuldkjain.github.io/gh-profile-readme-generator/)
