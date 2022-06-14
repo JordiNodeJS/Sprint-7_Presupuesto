@@ -23,6 +23,10 @@ function App() {
     setTotal(total)
   }, [values])
 
+  useEffect(() => {
+    prev => localStorage.setItem('values', JSON.stringify(prev))
+  }, [values])
+
   return (
     <div className='App'>
       <h1 className='text-center'>Here there are your awsome Budgets</h1>
