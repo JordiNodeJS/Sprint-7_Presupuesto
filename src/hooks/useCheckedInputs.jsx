@@ -5,8 +5,11 @@ const useCheckedInputs = () => {
     { project: 0, isChecked: false },
     { compaign: 0, isChecked: false },
   ]
+
   intialValues = localStorage.getItem('values') && JSON.parse(localStorage.getItem('values')) 
+ 
   const [values, setValues] = useState(intialValues)
+ 
   const handleInputChecked = ({ target: { id, name, value } }) => {
     const idInput = +id.slice(id.indexOf('_') + 1)
 
@@ -24,6 +27,7 @@ const useCheckedInputs = () => {
             }
       )
     )
+    localStorage.setItem('values', JSON.stringify(values))
   }
   
   const handleQuantity = ({ target: { name, value } }) => {
@@ -49,6 +53,7 @@ const useCheckedInputs = () => {
             }
       )
     )
+    localStorage.setItem('values', JSON.stringify(values))
   }
   return {values, setValues, handleInputChecked, handleQuantity}
 }
