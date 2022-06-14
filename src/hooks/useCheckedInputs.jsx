@@ -1,10 +1,15 @@
 import { useState } from 'react'
 const useCheckedInputs = () => {
-  const [values, setValues] = useState([
+  let intialValues = [
     { webpage: 500, isChecked: true, quantity: 1, quantityLanguage: 2 },
     { project: 0, isChecked: false },
     { compaign: 0, isChecked: false },
-  ])
+  ]
+
+  intialValues = localStorage.getItem('values') && JSON.parse(localStorage.getItem('values')) 
+ 
+  const [values, setValues] = useState(intialValues)
+ 
   const handleInputChecked = ({ target: { id, name, value } }) => {
     const idInput = +id.slice(id.indexOf('_') + 1)
 
@@ -22,7 +27,9 @@ const useCheckedInputs = () => {
             }
       )
     )
+    localStorage.setItem('values', JSON.stringify(values))
   }
+  
   const handleQuantity = ({ target: { name, value } }) => {
     value = value.replace(/\D/g, '')
 
@@ -46,7 +53,8 @@ const useCheckedInputs = () => {
             }
       )
     )
+    localStorage.setItem('values', JSON.stringify(values))
   }
-  return [values, handleInputChecked, handleQuantity]
+  return {values, setValues, handleInputChecked, handleQuantity}
 }
 export default useCheckedInputs

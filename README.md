@@ -42,6 +42,8 @@ Per a ells, has de canviar els ```<input type = "text" />``` del panell per un n
 
 ![](assets/presu.gif)
 
+Let's go!
+
 ### Exercici 4
 Ja gairebé has completat la base del projecte, et falta guardar les dades dels camps seleccionats per l'usuari en localstorage.
 
@@ -53,5 +55,6 @@ Per a acabar aquesta primera fase del projecte, és necessari implementar una pa
 
 És necessari que implementis la navegació entre vistes utilitzant el routing de React.
 
-
 [resources](https://bobbyhadz.com/blog/react-only-number-input)
+
+[Readme Generator](https://rahuldkjain.github.io/gh-profile-readme-generator/)
