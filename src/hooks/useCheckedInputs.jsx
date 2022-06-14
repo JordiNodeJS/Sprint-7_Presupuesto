@@ -1,10 +1,12 @@
 import { useState } from 'react'
 const useCheckedInputs = () => {
-  const [values, setValues] = useState([
+  let intialValues = [
     { webpage: 500, isChecked: true, quantity: 1, quantityLanguage: 2 },
     { project: 0, isChecked: false },
     { compaign: 0, isChecked: false },
-  ])
+  ]
+  intialValues = localStorage.getItem('values') && JSON.parse(localStorage.getItem('values')) 
+  const [values, setValues] = useState(intialValues)
   const handleInputChecked = ({ target: { id, name, value } }) => {
     const idInput = +id.slice(id.indexOf('_') + 1)
 

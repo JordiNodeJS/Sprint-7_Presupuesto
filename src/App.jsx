@@ -25,8 +25,8 @@ function App() {
 
   // localStore
   useEffect(() => {
-    prev => localStorage.setItem('values', JSON.stringify(prev))
-  }, [values])
+    localStorage.setItem('values', JSON.stringify(values))
+  }, [])
 
   return (
     <div className='App'>
