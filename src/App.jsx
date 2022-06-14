@@ -23,6 +23,7 @@ function App() {
     setTotal(total)
   }, [values])
 
+  // localStore
   useEffect(() => {
     prev => localStorage.setItem('values', JSON.stringify(prev))
   }, [values])
