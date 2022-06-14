@@ -1,5 +1,6 @@
 # Sprint-7_Presupuesto
 
+# Nivel 1
 
 ### Exercici 1
 La nostra aplicació començarà amb tres checkboxes mitjançant els quals l'usuari/ària podrà decidir si vol obtenir el pressupost d'una pàgina web (500 €), una campanya SEO (300 €) o una campanya de publicitat (200 €).
@@ -55,6 +56,7 @@ Per a acabar aquesta primera fase del projecte, és necessari implementar una pa
 
 És necessari que implementis la navegació entre vistes utilitzant el routing de React.
 
-[resources](https://bobbyhadz.com/blog/react-only-number-input)
+[Resources](https://bobbyhadz.com/blog/react-only-number-input)
 
 [Readme Generator](https://rahuldkjain.github.io/gh-profile-readme-generator/)
+[LocalStore](https://blog.logrocket.com/using-localstorage-react-hooks/)
