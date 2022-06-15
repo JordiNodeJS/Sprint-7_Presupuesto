@@ -4,6 +4,13 @@
 ## Diagrama de flujo de los componentes
 ![](assets/components.png)
 
+### Video de la app de presupuestos
+![video](assets/video.gif)
+
+### Captura de pantalla del sprint 7
+![Captura de pantalla del sprint 7](assets/sprint7.png)
+
+
 # Nivel 1
 
 ### Exercici 1
