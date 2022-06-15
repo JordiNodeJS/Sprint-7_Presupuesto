@@ -17,9 +17,9 @@ const Budget = () => {
 
       item.quantity && item.isChecked
         ? item.quantityLanguage === 1
-          ? (sum = item.quantity * 30)
-          : (sum = item.quantity * item.quantityLanguage * 30)
-        : (sum = 0)
+          ? sum = item.quantity * 30
+          : sum = item.quantity * item.quantityLanguage * 30
+        : sum = 0
 
       return acc + Object.values(item)[0] + sum
     }, 0)
@@ -85,16 +85,13 @@ const Budget = () => {
         <div className='fs-6 mt-4'>
         <h6 className='text-start text-warning mb-4'>testing outputs</h6>
           <p>
-            checkbox: {values.webpage} is {values[0].webpage}{' '}
-            {values[0].isChecked ? 'checked' : 'unchecked'}.
+            checkbox: {values.webpage} is {values[0].webpage} {values[0].isChecked ? 'checked' : 'unchecked'}.
           </p>
           <p>
-            checkbox: {values.webpage} is {values[1].project}{' '}
-            {values[1].isChecked ? 'checked' : 'unchecked'}.
+            checkbox: {values.webpage} is {values[1].project} {values[1].isChecked ? 'checked' : 'unchecked'}.
           </p>
           <p>
-            checkbox: {values.webpage} is {values[2].compaign}{' '}
-            {values[2].isChecked ? 'checked' : 'unchecked'}.
+            checkbox: {values.webpage} is {values[2].compaign} {values[2].isChecked ? 'checked' : 'unchecked'}.
           </p>
         </div>
         <div className='container-fluid bg-success text-black text-start p-2'>
