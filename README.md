@@ -1,5 +1,9 @@
 # Sprint-7_Presupuesto
 
+
+## Diagrama de flujo de los componentes
+![](assets/components.png)
+
 # Nivel 1
 
 ### Exercici 1
@@ -56,7 +60,8 @@ Per a acabar aquesta primera fase del projecte, és necessari implementar una pa
 
 És necessari que implementis la navegació entre vistes utilitzant el routing de React.
 
-[Resources](https://bobbyhadz.com/blog/react-only-number-input)
+[Create a Numbers only Input field](https://bobbyhadz.com/blog/react-only-number-input)
 
 [Readme Generator](https://rahuldkjain.github.io/gh-profile-readme-generator/)
+
 [LocalStore](https://blog.logrocket.com/using-localstorage-react-hooks/)
