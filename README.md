@@ -1,6 +1,5 @@
 # Sprint-7_Presupuesto
 
-
 ## Diagrama de flujo de los componentes
 ![](assets/components.png)
 
@@ -9,7 +8,6 @@
 
 ### Captura de pantalla del sprint 7
 ![Captura de pantalla del sprint 7](assets/sprint7.png)
-
 
 # Nivel 1
 
