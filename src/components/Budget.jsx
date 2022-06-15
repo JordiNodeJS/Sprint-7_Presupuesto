@@ -75,12 +75,12 @@ const Budget = () => {
           />
           A Goolge Ads compaign: $200 bucks
         </p>
-        <p
+        <div
           onChange={handleInputChecked}
           className='form-control text-center fs-3 p-3 bg-info text-white'
         >
-          Prices:  <span className='text-danger'>${total}</span> bucks!! <p className='fs-6 text-danger'>You can pay with PayPal or Bitcoins</p> 
-        </p>
+          Prices:  <span className='text-danger'>${total}</span> bucks!!<p className='fs-6 text-danger'>You can pay with PayPal or Bitcoins</p> 
+        </div>
 
         <div className='fs-6 mt-4'>
         <h6 className='text-start text-warning mb-4'>testing outputs</h6>
