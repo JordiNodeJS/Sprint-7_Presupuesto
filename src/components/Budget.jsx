@@ -77,24 +77,28 @@ const Budget = () => {
         </p>
         <p
           onChange={handleInputChecked}
-          className='form-control text-start bg-info text-white'
+          className='form-control text-center fs-3 p-3 bg-info text-white'
         >
-          Prices: ${total} bucks!!
+          Prices:  <span className='text-danger'>${total}</span> bucks!! <p className='fs-6 text-danger'>You can pay with PayPal or Bitcoins</p> 
         </p>
-        <p>
-          checkbox: {values.webpage} is {values[0].webpage}{' '}
-          {values[0].isChecked ? 'checked' : 'unchecked'}.
-        </p>
-        <p>
-          checkbox: {values.webpage} is {values[1].project}{' '}
-          {values[1].isChecked ? 'checked' : 'unchecked'}.
-        </p>
-        <p>
-          checkbox: {values.webpage} is {values[2].compaign}{' '}
-          {values[2].isChecked ? 'checked' : 'unchecked'}.
-        </p>
+
+        <div className='fs-6 mt-4'>
+        <h6 className='text-start text-warning mb-4'>testing outputs</h6>
+          <p>
+            checkbox: {values.webpage} is {values[0].webpage}{' '}
+            {values[0].isChecked ? 'checked' : 'unchecked'}.
+          </p>
+          <p>
+            checkbox: {values.webpage} is {values[1].project}{' '}
+            {values[1].isChecked ? 'checked' : 'unchecked'}.
+          </p>
+          <p>
+            checkbox: {values.webpage} is {values[2].compaign}{' '}
+            {values[2].isChecked ? 'checked' : 'unchecked'}.
+          </p>
+        </div>
         <div className='container-fluid bg-success text-black text-start p-2'>
-          <h6 className='mb-4'>testing outputs</h6>
+          
           {values.map((item, index) => (
             <pre className='fs-6' key={index}>
               <code>

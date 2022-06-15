@@ -11,7 +11,7 @@ function App() {
           <ul className='d-flex flex-row navbar-nav m-auto fs-4 fw-bolder'>
             <li className='nav-item me-4'>
               <Link className='nav-link' to='/'>
-                Home
+                Intro
               </Link>
             </li>
             <li className='nav-item'>

@@ -27,7 +27,6 @@ const useCheckedInputs = () => {
             }
       )
     )
-    localStorage.setItem('values', JSON.stringify(values))
   }
   
   const handleQuantity = ({ target: { name, value } }) => {
@@ -53,7 +52,6 @@ const useCheckedInputs = () => {
             }
       )
     )
-    localStorage.setItem('values', JSON.stringify(values))
   }
   return {values, setValues, handleInputChecked, handleQuantity}
 }

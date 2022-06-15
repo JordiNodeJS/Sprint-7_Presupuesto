@@ -20,7 +20,7 @@ const NumbersWebpagesLanguages = ({values, setValues, handleQuantity}) => {
   }
 
   const Button = ({ children, onClick, masterButton }) => (
-    <button className="btn btn-success ms-3"
+    <button className="btn btn-success ms-3 me-2"
     onClick={ _ => onClick(children, masterButton)}>{children}</button>
  
   )
@@ -29,14 +29,14 @@ const NumbersWebpagesLanguages = ({values, setValues, handleQuantity}) => {
   return (
     <div className='bg-light p-2 mb-4 rounded'>
       <h6>Number of Web Pages and Languages</h6>
-      <div className='container-fluid text-start'>
+      <div className='container-fluid text-start fs-6 fw-bold'>
         <div className='form-group row'>
-          <label className='form-label fs-6' htmlFor='pages'>
+          <label className='form-label' htmlFor='pages'>
             <Button masterButton='pagesButton' onClick={handleClickPlus}>+</Button>
             <input
               id='pages'
               name='pages'
-              className='ms-2 mt-1 me-2 text-info'
+              className='ms-2 mt-1 text-info'
               type='text'
               value={values[0].quantity}
               onClick={e => e.target.select()}
@@ -53,7 +53,7 @@ const NumbersWebpagesLanguages = ({values, setValues, handleQuantity}) => {
             <input
               id='languages'
               name='languages'
-              className='ms-2 mt-1 me-2 text-info'
+              className='ms-2 mt-1 text-info'
               type='text'
               value={values[0].quantityLanguage}
               onClick={event => event.target.select()}
