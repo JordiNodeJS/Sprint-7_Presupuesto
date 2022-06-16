@@ -79,7 +79,8 @@ const Budget = () => {
           onChange={handleInputChecked}
           className='form-control text-center fs-3 p-3 bg-info text-white'
         >
-          Prices:  <span className='text-danger'>${total}</span> bucks!!<p className='fs-6 text-danger'>You can pay with PayPal or Bitcoins</p> 
+          Prices:  <span className='text-danger'>${total}</span> bucks!!
+          <p className='fs-6 text-danger'>You can pay with PayPal or Bitcoins</p> 
         </div>
 
         <div className='fs-6 mt-4'>
