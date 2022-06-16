@@ -1,0 +1,25 @@
+.wideIt {
+  /* transition: height 0.5s ease-in-out; */
+  animation: display-wide-it 0.8s ease-in-out;
+
+}
+
+@keyframes display-wide-it {
+  0% {
+    transform: translateX(-2000px) scale(0.7);
+    opacity: 0.7;
+    height: 0;
+    
+  }
+
+  80% {
+    transform: translateX(0px) scale(0.7);
+    opacity: 0.7;
+    height: 139.19px;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

@@ -1,6 +1,6 @@
 const Intro = () => {
   return (
-    <div className='container'>
+    <div className='container animate__animated animate__backInUp'>
       <div className='row'>
         <div className='mt-4 text-center'>
           <h1>Welcome to Budget App</h1>
