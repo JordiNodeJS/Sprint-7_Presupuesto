@@ -45,13 +45,16 @@ const Budget = () => {
           />
           A web page: $500 bucks
         </p>
-        {values[0].isChecked && (
+        <div>
+          {values[0].isChecked && (
           <NumbersWebpagesLanguages
             values={values}
             setValues={setValues}
             handleQuantity={handleQuantity}
           />
         )}
+        </div>
+ 
         <p className='form-control text-start'>
           <input
             id='budget_1'

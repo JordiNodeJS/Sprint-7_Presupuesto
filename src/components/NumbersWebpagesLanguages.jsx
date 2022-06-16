@@ -29,7 +29,7 @@ const NumbersWebpagesLanguages = ({values, setValues, handleQuantity}) => {
 
 
   return (
-    <div className='bg-light p-2 mb-4 rounded animate__animated animate__backInLeft wideIt'>
+    <div className='bg-light p-2 mb-4 rounded wideIt'>
       <h6>Number of Web Pages and Languages</h6>
       <div className='container-fluid text-start fs-6 fw-bold'>
         <div className='form-group row'>
