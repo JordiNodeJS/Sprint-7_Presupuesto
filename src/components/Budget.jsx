@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import 'animate.css'
 import NumbersWebpagesLanguages from './NumbersWebpagesLanguages'
 import useCheckedInputs from '../hooks/useCheckedInputs'
 
@@ -28,8 +29,8 @@ const Budget = () => {
   }, [values])
 
   return (
-    <div className='App mt-4'>
-      <h1 className='text-center'>Here there are your awsome Budgets</h1>
+    <div className='App mt-4 animate__animated  animate__fadeIn'>
+      <h1 className='text-center'>Here there are your awesome Budgets</h1>
       <div className='align'>
         <p>What d'you wanna do?</p>
         <p className='form-control text-start'>
@@ -44,13 +45,16 @@ const Budget = () => {
           />
           A web page: $500 bucks
         </p>
-        {values[0].isChecked && (
+        <div>
+          {values[0].isChecked && (
           <NumbersWebpagesLanguages
             values={values}
             setValues={setValues}
             handleQuantity={handleQuantity}
           />
         )}
+        </div>
+ 
         <p className='form-control text-start'>
           <input
             id='budget_1'
@@ -79,7 +83,7 @@ const Budget = () => {
           onChange={handleInputChecked}
           className='form-control text-center fs-3 p-3 bg-info text-white'
         >
-          Prices:  <span className='text-danger'>${total}</span> bucks!!
+          Prices:  <span className='text-danger animate__animated animate__headShake'>${total}</span> bucks!
           <p className='fs-6 text-danger'>You can pay with PayPal or Bitcoins</p> 
         </div>
 
