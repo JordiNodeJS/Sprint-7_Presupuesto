@@ -1,46 +1,24 @@
 .wideIt {
-  transition: height 1.5s ease-in-out;
-  animation: display-wide-it 0.8s ease-in-out;
+  animation: display-wide-it 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
 }
-
-
-@keyframes display-wide-it-again {
-  0% {
-    display: hidden;
-  }
-
-  90% {
-   
-  }
-  100% {
-    display: visible;
-    top: 0;
-    height: 140px;
-  }
-}
-  
-
-
 
 @keyframes display-wide-it {
   0% {
     transform: translateX(-2000px) scale(0.7);
-    opacity: 0;
     height: 0;
-    
+    opacity: 0;
   }
 
-  80% {
-    transform: translateX(0px) scale(0.7);
+  70% {
+    transform: translateX(0px) scale(0.7) ;
     opacity: 0.7;
     height: 139.19px;
   }
   90% {
     transform: translateX(30px) scale(1.1);
-
   }
   100% {
-    transform: translateX(0) scale(1);
+    transform: translateX(0) scale(1) translateZ(160px);
     opacity: 1;
   }
 }
